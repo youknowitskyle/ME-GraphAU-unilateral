@@ -5,7 +5,7 @@ import pandas as pd
 # You nead downloading DISFA including 'ActionUnit_Labels'
 label_path = '../data/DISFA/ActionUnit_Labels'
 list_path_prefix = '../data/DISFA/list/'
-images_path = '...'
+images_path = '../data/DISFA/img'
 
 part1 = ['SN002', 'SN010', 'SN001', 'SN026',
          'SN027', 'SN032', 'SN030', 'SN009', 'SN016']
@@ -38,19 +38,19 @@ part1_frame_list = []
 part1_numpy_list = []
 for fr in part1:
     fr_path = os.path.join(label_path, fr)
-    fr_directory = os.fsencode(images_path)
+    fr_directory = os.fsencode(f'{images_path}/{fr}/')
     total_frame = 0
     valid_frames = set()
     for file in os.listdir(fr_directory):
         filename = os.fsdecode(file)
         if "left" in filename:
             total_frame += 1
-            valid_frames.add(int(filename[-4:]))
+            valid_frames.add(int(filename[-8:-4]))
             frame_img_name = fr + '/' + filename
             part1_frame_list.append(frame_img_name)
             with open(list_path_prefix + 'DISFA_test_img_path_fold3.txt', 'a+') as f:
                 f.write(frame_img_name+'\n')
-    au_label_array = np.zeros((total_frame, 8), dtype=np.int)
+    au_label_array = np.zeros((total_frame, 8), dtype=int)
     for ai, au in enumerate(au_idx):
         AULabel_path = os.path.join(fr_path, fr+'_au'+str(au) + '.txt')
         with open(AULabel_path, 'r') as label:
@@ -73,7 +73,7 @@ np.savetxt(list_path_prefix + 'DISFA_test_label_fold3.txt',
 #     au1_path = os.path.join(fr_path,fr+'_au1.txt')
 #     with open(au1_path, 'r') as label:                          # find out how many labelled frames there are in the AU labels
 #         total_frame = len(label.readlines())
-#     au_label_array = np.zeros((total_frame,8),dtype=np.int)     # construct an array [frame, au number] = au intensity
+#     au_label_array = np.zeros((total_frame,8),dtype=int)     # construct an array [frame, au number] = au intensity
 #     for ai, au in enumerate(au_idx):                            # loop through AU numbers
 #         AULabel_path = os.path.join(fr_path,fr+'_au'+str(au) +'.txt')
 #         if not os.path.isfile(AULabel_path):
@@ -108,19 +108,19 @@ part2_frame_list = []
 part2_numpy_list = []
 for fr in part2:
     fr_path = os.path.join(label_path, fr)
-    fr_directory = os.fsencode(images_path)
+    fr_directory = os.fsencode(f'{images_path}/{fr}/')
     total_frame = 0
     valid_frames = set()
     for file in os.listdir(fr_directory):
         filename = os.fsdecode(file)
         if "left" in filename:
             total_frame += 1
-            valid_frames.add(int(filename[-4:]))  # FIX THIS
+            valid_frames.add(int(filename[-8:-4]))
             frame_img_name = fr + '/' + filename
             part2_frame_list.append(frame_img_name)
             with open(list_path_prefix + 'DISFA_test_img_path_fold2.txt', 'a+') as f:
                 f.write(frame_img_name+'\n')
-    au_label_array = np.zeros((total_frame, 8), dtype=np.int)
+    au_label_array = np.zeros((total_frame, 8), dtype=int)
     for ai, au in enumerate(au_idx):
         AULabel_path = os.path.join(fr_path, fr+'_au'+str(au) + '.txt')
         with open(AULabel_path, 'r') as label:
@@ -146,7 +146,7 @@ np.savetxt(list_path_prefix + 'DISFA_test_label_fold2.txt',
 #     au1_path = os.path.join(fr_path,fr+'_au1.txt')
 #     with open(au1_path, 'r') as label:
 #         total_frame = len(label.readlines())
-#     au_label_array = np.zeros((total_frame,8),dtype=np.int)
+#     au_label_array = np.zeros((total_frame,8),dtype=int)
 #     for ai, au in enumerate(au_idx):
 #         AULabel_path = os.path.join(fr_path,fr+'_au'+str(au) +'.txt')
 #         if not os.path.isfile(AULabel_path):
@@ -180,19 +180,19 @@ part3_frame_list = []
 part3_numpy_list = []
 for fr in part3:
     fr_path = os.path.join(label_path, fr)
-    fr_directory = os.fsencode(images_path)
+    fr_directory = os.fsencode(f'{images_path}/{fr}/')
     total_frame = 0
     valid_frames = set()
     for file in os.listdir(fr_directory):
         filename = os.fsdecode(file)
         if "left" in filename:
             total_frame += 1
-            valid_frames.add(int(filename[-4:]))  # FIX THIS
+            valid_frames.add(int(filename[-8:-4]))
             frame_img_name = fr + '/' + filename
             part3_frame_list.append(frame_img_name)
             with open(list_path_prefix + 'DISFA_test_img_path_fold1.txt', 'a+') as f:
                 f.write(frame_img_name+'\n')
-    au_label_array = np.zeros((total_frame, 8), dtype=np.int)
+    au_label_array = np.zeros((total_frame, 8), dtype=int)
     for ai, au in enumerate(au_idx):
         AULabel_path = os.path.join(fr_path, fr+'_au'+str(au) + '.txt')
         with open(AULabel_path, 'r') as label:
@@ -215,7 +215,7 @@ np.savetxt(list_path_prefix + 'DISFA_test_label_fold1.txt',
 #     au1_path = os.path.join(fr_path,fr+'_au1.txt')
 #     with open(au1_path, 'r') as label:
 #         total_frame = len(label.readlines())
-#     au_label_array = np.zeros((total_frame,8),dtype=np.int)
+#     au_label_array = np.zeros((total_frame,8),dtype=int)
 #     for ai, au in enumerate(au_idx):
 #         AULabel_path = os.path.join(fr_path,fr+'_au'+str(au) +'.txt')
 #         if not os.path.isfile(AULabel_path):
