@@ -105,11 +105,14 @@ def update_statistics_list(old_list, new_list):
 
 
 def BP4D_infolist(list):
-    infostr = {'AU1: {:.2f} AU2: {:.2f} AU4: {:.2f} AU6: {:.2f} AU7: {:.2f} AU10: {:.2f} AU12: {:.2f} AU14: {:.2f} AU15: {:.2f} AU17: {:.2f} AU23: {:.2f} AU24: {:.2f} '.format(100.*list[0],100.*list[1],100.*list[2],100.*list[3],100.*list[4],100.*list[5],100.*list[6],100.*list[7],100.*list[8],100.*list[9],100.*list[10],100.*list[11])}
+    infostr = {'AU1: {:.2f} AU2: {:.2f} AU4: {:.2f} AU6: {:.2f} AU7: {:.2f} AU10: {:.2f} AU12: {:.2f} AU14: {:.2f} AU15: {:.2f} AU17: {:.2f} AU23: {:.2f} AU24: {:.2f} '.format(
+        100.*list[0], 100.*list[1], 100.*list[2], 100.*list[3], 100.*list[4], 100.*list[5], 100.*list[6], 100.*list[7], 100.*list[8], 100.*list[9], 100.*list[10], 100.*list[11])}
     return infostr
 
+
 def DISFA_infolist(list):
-    infostr = {'AU1: {:.2f} AU2: {:.2f} AU4: {:.2f}  AU6: {:.2f} AU9: {:.2f} AU12: {:.2f}  AU25: {:.2f} AU26: {:.2f} '.format(100.*list[0],100.*list[1],100.*list[2],100.*list[3],100.*list[4],100.*list[5],100.*list[6],100.*list[7])}
+    infostr = {'AU1: {:.2f} AU2: {:.2f} AU4: {:.2f}  AU6: {:.2f} AU9: {:.2f} AU12: {:.2f}  AU25: {:.2f} AU26: {:.2f} '.format(
+        100.*list[0], 100.*list[1], 100.*list[2], 100.*list[3], 100.*list[4], 100.*list[5], 100.*list[6], 100.*list[7])}
     return infostr
 
 
@@ -207,8 +210,8 @@ class image_test(object):
         return img
 
 
-def load_state_dict(model,path):
-    checkpoints = torch.load(path,map_location=torch.device('cpu'))
+def load_state_dict(model, path):
+    checkpoints = torch.load(path, map_location=torch.device('cpu'))
     state_dict = checkpoints['state_dict']
     from collections import OrderedDict
     new_state_dict = OrderedDict()
@@ -217,7 +220,7 @@ def load_state_dict(model,path):
             k = k[7:]  # remove `module.`
         new_state_dict[k] = v
     # load params
-    model.load_state_dict(new_state_dict,strict=False)
+    model.load_state_dict(new_state_dict, strict=False)
     return model
 
 
@@ -246,7 +249,22 @@ class WeightedAsymmetricLoss(nn.Module):
         loss = los_pos + neg_weight * los_neg
 
         if self.weight is not None:
-            loss = loss * self.weight.view(1,-1)
+            loss = loss * self.weight.view(1, -1)
 
         loss = loss.mean(dim=-1)
         return -loss.mean()
+
+
+class WeightedMSELoss(nn.Module):
+    def __init__(self, weight=None):
+        super(WeightedMSELoss, self).__init__()
+        self.weight = weight
+
+    def forward(self, x, y):
+        loss = (x - y) ** 2
+
+        if self.weight is not None:
+            loss = self.weight * loss
+
+        loss = loss.mean()
+        return loss
