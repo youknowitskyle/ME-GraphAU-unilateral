@@ -1,0 +1,326 @@
+2023-05-31 22:19:54,004:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:19:54,004:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:19:54,070:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-05-31 22:19:54,211:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-05-31 22:19:55,950:INFO: Epoch: [1 | 10 LR: 0.0001 ]
+2023-05-31 22:26:01,891:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:26:01,891:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:26:01,956:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-05-31 22:26:02,113:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-05-31 22:26:03,122:INFO: Epoch: [1 | 10 LR: 0.0001 ]
+2023-05-31 22:31:42,020:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:31:42,020:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:32:48,276:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:32:48,276:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:33:13,076:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:33:13,076:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:33:24,818:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:33:24,818:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:33:25,642:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-05-31 22:33:25,797:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-05-31 22:33:26,866:INFO: Epoch: [1 | 10 LR: 0.0001 ]
+2023-05-31 22:36:25,790:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:36:25,790:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:36:25,866:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-05-31 22:36:26,067:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-05-31 22:36:27,063:INFO: Epoch: [1 | 10 LR: 0.0001 ]
+2023-05-31 22:37:50,208:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:37:50,208:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:37:50,283:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-05-31 22:37:50,472:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-05-31 22:37:51,423:INFO: Epoch: [1 | 10 LR: 0.0001 ]
+2023-05-31 22:42:41,199:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:42:41,199:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:43:51,361:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 22:43:51,361:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 22:43:51,429:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-05-31 22:43:51,575:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-05-31 22:43:52,572:INFO: Epoch: [1 | 10 LR: 0.0001 ]
+2023-05-31 23:20:51,967:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla1                      
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla1/bs_64_seed_0_lr_0.0001
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+----------------- End -------------------
+2023-05-31 23:20:51,967:INFO: writting logs to file results/vanilla1/bs_64_seed_0_lr_0.0001/train.log
+2023-05-31 23:20:52,114:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-05-31 23:20:52,323:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-05-31 23:20:54,653:INFO: Epoch: [1 | 10 LR: 0.0001 ]
+2023-05-31 23:25:01,760:INFO: {'Epoch:  1   train_loss: 0.46474  val_loss: 0.51530 val_msa: 0.36088'}
+2023-05-31 23:25:01,932:INFO: Epoch: [2 | 10 LR: 9.755638583374713e-05 ]
+2023-05-31 23:29:03,825:INFO: {'Epoch:  2   train_loss: 0.19224  val_loss: 0.58167 val_msa: 0.38628'}
+2023-05-31 23:29:04,049:INFO: Epoch: [3 | 10 LR: 9.045762260541626e-05 ]
+2023-05-31 23:33:04,088:INFO: {'Epoch:  3   train_loss: 0.15346  val_loss: 0.47558 val_msa: 0.33855'}
+2023-05-31 23:33:04,282:INFO: Epoch: [4 | 10 LR: 7.939858539163535e-05 ]
+2023-05-31 23:37:05,441:INFO: {'Epoch:  4   train_loss: 0.13032  val_loss: 0.62246 val_msa: 0.39768'}
+2023-05-31 23:37:05,781:INFO: Epoch: [5 | 10 LR: 6.546180980773238e-05 ]
+2023-05-31 23:41:06,642:INFO: {'Epoch:  5   train_loss: 0.11578  val_loss: 0.55474 val_msa: 0.37419'}
+2023-05-31 23:41:06,836:INFO: Epoch: [6 | 10 LR: 5.001152455108501e-05 ]
+2023-05-31 23:45:08,735:INFO: {'Epoch:  6   train_loss: 0.10434  val_loss: 0.58522 val_msa: 0.38412'}
+2023-05-31 23:45:08,927:INFO: Epoch: [7 | 10 LR: 3.456011119108119e-05 ]
+2023-05-31 23:49:10,176:INFO: {'Epoch:  7   train_loss: 0.09638  val_loss: 0.58293 val_msa: 0.38114'}
+2023-05-31 23:49:10,401:INFO: Epoch: [8 | 10 LR: 2.062006172372529e-05 ]
+2023-05-31 23:53:11,332:INFO: {'Epoch:  8   train_loss: 0.09098  val_loss: 0.56626 val_msa: 0.38057'}
+2023-05-31 23:53:11,689:INFO: Epoch: [9 | 10 LR: 9.555925316917875e-06 ]
+2023-05-31 23:57:13,151:INFO: {'Epoch:  9   train_loss: 0.08838  val_loss: 0.58050 val_msa: 0.38362'}
+2023-05-31 23:57:13,346:INFO: Epoch: [10 | 10 LR: 2.4507367305285076e-06 ]
+2023-06-01 00:01:14,846:INFO: {'Epoch:  10   train_loss: 0.08668  val_loss: 0.59813 val_msa: 0.38887'}

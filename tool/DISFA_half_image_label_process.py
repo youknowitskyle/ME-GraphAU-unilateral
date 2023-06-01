@@ -41,7 +41,7 @@ for fr in part1:
     fr_directory = os.fsencode(f'{images_path}/{fr}/')
     total_frame = 0
     valid_frames = set()
-    for file in os.listdir(fr_directory):
+    for file in sorted(os.listdir(fr_directory)):
         filename = os.fsdecode(file)
         if "left" in filename:
             total_frame += 1
@@ -111,7 +111,7 @@ for fr in part2:
     fr_directory = os.fsencode(f'{images_path}/{fr}/')
     total_frame = 0
     valid_frames = set()
-    for file in os.listdir(fr_directory):
+    for file in sorted(os.listdir(fr_directory)):
         filename = os.fsdecode(file)
         if "left" in filename:
             total_frame += 1
@@ -183,7 +183,7 @@ for fr in part3:
     fr_directory = os.fsencode(f'{images_path}/{fr}/')
     total_frame = 0
     valid_frames = set()
-    for file in os.listdir(fr_directory):
+    for file in sorted(os.listdir(fr_directory)):
         filename = os.fsdecode(file)
         if "left" in filename:
             total_frame += 1

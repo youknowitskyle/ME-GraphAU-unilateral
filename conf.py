@@ -26,11 +26,12 @@ parser.add_argument('-j', '--num_workers', default=4, type=int, metavar='N', hel
 parser.add_argument('--weight-decay', '-wd', default=5e-4, type=float, metavar='W', help='weight decay (default: 1e-4)')
 parser.add_argument('--optimizer-eps', default=1e-8, type=float)
 parser.add_argument('--crop-size', default=224, type=int, help="crop size of train/test image data")
+parser.add_argument('--image-size', default=256, type=int, help="original size of frame")
 parser.add_argument('--evaluate', action='store_true', help='evaluation mode')
 
 # Network and Loss
 parser.add_argument('--arc', default='swin_transformer_base', type=str, choices=['resnet18', 'resnet50', 'resnet101',
-                    'swin_transformer_tiny', 'swin_transformer_small', 'swin_transformer_base'], help="backbone architecture resnet / swin_transformer")
+                    'swin_transformer_tiny', 'swin_transformer_small', 'swin_transformer_base', 'tiny_vit_21m_384', 'tiny_vit_11m_224'], help="backbone architecture resnet / swin_transformer")
 parser.add_argument('--metric', default="dots", type=str, choices=['dots', 'cosine', 'l1'], help="metric for graph top-K nearest neighbors selection")
 parser.add_argument('--lam', default=0.001, type=float, help="lambda for adjusting loss")
 

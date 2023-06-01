@@ -27,16 +27,15 @@ def get_dataloader(conf):
 
     elif conf.dataset == 'DISFA':
         trainset = DISFA(conf.dataset_path, train=True, fold=conf.fold, transform=image_train(
-            crop_size=conf.crop_size), crop_size=conf.crop_size, stage=1)
+            crop_size=conf.crop_size, img_size=conf.image_size), crop_size=conf.crop_size, stage=1)
         train_loader = DataLoader(
             trainset, batch_size=conf.batch_size, shuffle=True, num_workers=conf.num_workers)
         valset = DISFA(conf.dataset_path, train=False, fold=conf.fold,
-                       transform=image_test(crop_size=conf.crop_size), stage=1)
+                       transform=image_test(crop_size=conf.crop_size, img_size=conf.image_size), stage=1)
         val_loader = DataLoader(
             valset, batch_size=conf.batch_size, shuffle=False, num_workers=conf.num_workers)
 
     return train_loader, val_loader, len(trainset), len(valset)
-
 
 # Train
 def train(conf, net, train_loader, optimizer, epoch, criterion):
@@ -61,6 +60,8 @@ def train(conf, net, train_loader, optimizer, epoch, criterion):
 # Val
 def val(net, val_loader, criterion):
     losses = AverageMeter()
+    mae_avg = AverageMeter()
+    mae_loss = nn.L1Loss()
     net.eval()
     statistics_list = None
     for batch_idx, (inputs, targets) in enumerate(tqdm(val_loader)):
@@ -70,14 +71,16 @@ def val(net, val_loader, criterion):
                 inputs, targets = inputs.cuda(), targets.cuda()
             outputs = net(inputs)
             loss = criterion(outputs, targets)
+            mae = mae_loss(outputs, targets)
             losses.update(loss.data.item(), inputs.size(0))
+            mae_avg.update(mae.data.item(), inputs.size(0))
     #         update_list = statistics(outputs, targets.detach(), 0.5)
     #         statistics_list = update_statistics_list(
     #             statistics_list, update_list)
     # mean_f1_score, f1_score_list = calc_f1_score(statistics_list)
     # mean_acc, acc_list = calc_acc(statistics_list)
     # return losses.avg, mean_f1_score, f1_score_list, mean_acc, acc_list
-    return losses.avg
+    return losses.avg, mae_avg.avg
 
 
 def main(conf):
@@ -108,11 +111,12 @@ def main(conf):
         train_weight = train_weight.cuda()
 
     # criterion = WeightedAsymmetricLoss(weight=train_weight)
-    criterion = nn.MSELoss()
+    criterion = WeightedMSELoss()
     optimizer = optim.AdamW(net.parameters(),  betas=(
         0.9, 0.999), lr=conf.learning_rate, weight_decay=conf.weight_decay)
     print('the init learning rate is ', conf.learning_rate)
 
+    best_val_loss = np.inf
     # train and val
     for epoch in range(start_epoch, conf.epochs):
         lr = optimizer.param_groups[0]['lr']
@@ -122,15 +126,15 @@ def main(conf):
                            optimizer, epoch, criterion)
         # val_loss, val_mean_f1_score, val_f1_score, val_mean_acc, val_acc = val(
         #     net, val_loader, criterion)
-        val_loss = val(
+        val_loss, val_mae = val(
             net, val_loader, criterion)
 
         # log
         # infostr = {'Epoch:  {}   train_loss: {:.5f}  val_loss: {:.5f}  val_mean_f1_score {:.2f},val_mean_acc {:.2f}'
         #            .format(epoch + 1, train_loss, val_loss, 100. * val_mean_f1_score, 100. * val_mean_acc)}
 
-        infostr = {'Epoch:  {}   train_loss: {:.5f}  val_loss: {:.5f}'
-                   .format(epoch + 1, train_loss, val_loss)}
+        infostr = {'Epoch:  {}   train_loss: {:.5f}  val_loss: {:.5f} val_msa: {:.5f}'
+                   .format(epoch + 1, train_loss, val_loss, val_mae)}
         logging.info(infostr)
 
         # infostr = {'F1-score-list:'}
@@ -143,22 +147,24 @@ def main(conf):
         # logging.info(infostr)
 
         # save checkpoints
-        if (epoch+1) % 4 == 0:
+        # if (epoch+1) % 4 == 0:
+        #     checkpoint = {
+        #         'epoch': epoch,
+        #         'state_dict': net.state_dict(),
+        #         'optimizer': optimizer.state_dict(),
+        #     }
+        #     torch.save(checkpoint, os.path.join(
+        #         conf['outdir'], 'epoch' + str(epoch + 1) + '_model_fold' + str(conf.fold) + '.pth'))
+
+        if (best_val_loss > val_loss):
+            best_val_loss = val_loss
             checkpoint = {
                 'epoch': epoch,
                 'state_dict': net.state_dict(),
                 'optimizer': optimizer.state_dict(),
             }
             torch.save(checkpoint, os.path.join(
-                conf['outdir'], 'epoch' + str(epoch + 1) + '_model_fold' + str(conf.fold) + '.pth'))
-
-        checkpoint = {
-            'epoch': epoch,
-            'state_dict': net.state_dict(),
-            'optimizer': optimizer.state_dict(),
-        }
-        torch.save(checkpoint, os.path.join(
-            conf['outdir'], 'cur_model_fold' + str(conf.fold) + '.pth'))
+                conf['outdir'], 'cur_model_fold' + str(conf.fold) + '.pth'))
 
 
 # ---------------------------------------------------------------------------------
