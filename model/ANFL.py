@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import math
 from .swin_transformer import swin_transformer_tiny, swin_transformer_small, swin_transformer_base
 from .resnet import resnet18, resnet50, resnet101
+from .tiny_vit import tiny_vit_21m_384, tiny_vit_11m_224
 from .graph import normalize_digraph
 from .basic_block import *
 
@@ -97,9 +98,12 @@ class Head(nn.Module):
         b, n, c = f_v.shape
         sc = self.sc
         sc = self.relu(sc)
+
         sc = F.normalize(sc, p=2, dim=-1)
+
         cl = F.normalize(f_v, p=2, dim=-1)
-        cl = (cl * sc.view(1, n, c)).sum(dim=-1)
+        cl = (cl * sc.view(1, n, c)).sum(dim=-1) * 5
+        # cl = (f_v * sc.view(1, n, c)).sum(dim=-1)
         return cl
 
 
@@ -127,6 +131,17 @@ class MEFARG(nn.Module):
             self.in_channels = self.backbone.fc.weight.shape[1]
             self.out_channels = self.in_channels // 4
             self.backbone.fc = None
+
+        elif 'tiny_vit' in backbone:
+            if backbone == "tiny_vit_21m_384":
+                self.backbone = tiny_vit_21m_384(pretrained=True)
+            elif backbone == "tiny_vit_11m_224":
+                self.backbone = tiny_vit_11m_224(pretrained=True)
+            else:
+                raise Exception("Error: wrong backbone name: ", backbone)
+            self.in_channels = self.backbone.head.in_features
+            self.out_channels = 384
+            self.backbone.head = None
         else:
             raise Exception("Error: wrong backbone name: ", backbone)
 
@@ -139,3 +154,6 @@ class MEFARG(nn.Module):
         x = self.global_linear(x)
         cl = self.head(x)
         return cl
+
+
+
