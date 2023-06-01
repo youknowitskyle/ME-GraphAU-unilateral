@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
-train_labels_path = './data/DISFA/list/DISFA_train_label_fold1.txt'
-test_labels_path = './data/DISFA/list/DISFA_test_label_fold1.txt'
+train_labels_path = '../data/DISFA/list/DISFA_train_label_fold1.txt'
+test_labels_path = '../data/DISFA/list/DISFA_test_label_fold1.txt'
 
 with open(train_labels_path) as f:
     train_lines = [line for line in f]

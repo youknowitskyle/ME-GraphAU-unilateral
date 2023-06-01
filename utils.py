@@ -3,6 +3,7 @@ import torch
 from torchvision import transforms
 from PIL import Image
 import torch.nn as nn
+import numpy as np
 
 
 class AverageMeter(object):
@@ -268,3 +269,10 @@ class WeightedMSELoss(nn.Module):
 
         loss = loss.mean()
         return loss
+
+
+def get_sampler_weights(datalist, weight_map):
+    weights = [0] * len(datalist)
+    for idx, (_, label) in enumerate(datalist):
+        weights[idx] = np.vectorize(weight_map.__getitem__)(label).sum()
+    return weights

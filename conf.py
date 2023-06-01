@@ -14,34 +14,52 @@ import yaml
 
 parser = argparse.ArgumentParser(description='PyTorch Training')
 # Datasets
-parser.add_argument('--dataset', default="BP4D", type=str, help="experiment dataset BP4D / DISFA")
-parser.add_argument('--N-fold', default=3, type=int, help="the ratio of train and validation data")
-parser.add_argument('-f','--fold', default=1, type=int, metavar='N', help='the fold of three folds cross-validation ')
+parser.add_argument('--dataset', default="BP4D", type=str,
+                    help="experiment dataset BP4D / DISFA")
+parser.add_argument('--N-fold', default=3, type=int,
+                    help="the ratio of train and validation data")
+parser.add_argument('-f', '--fold', default=1, type=int,
+                    metavar='N', help='the fold of three folds cross-validation ')
 
 # Param
-parser.add_argument('-b','--batch-size', default=64, type=int, metavar='N', help='mini-batch size (default: 128)')
-parser.add_argument('-lr', '--learning-rate', default=0.00001, type=float, metavar='LR', help='initial learning rate')
-parser.add_argument('-e', '--epochs', default=20, type=int, metavar='N', help='number of total epochs to run')
-parser.add_argument('-j', '--num_workers', default=4, type=int, metavar='N', help='number of data loading workers (default: 4)')
-parser.add_argument('--weight-decay', '-wd', default=5e-4, type=float, metavar='W', help='weight decay (default: 1e-4)')
+parser.add_argument('-b', '--batch-size', default=64, type=int,
+                    metavar='N', help='mini-batch size (default: 128)')
+parser.add_argument('-lr', '--learning-rate', default=0.00001,
+                    type=float, metavar='LR', help='initial learning rate')
+parser.add_argument('-e', '--epochs', default=20, type=int,
+                    metavar='N', help='number of total epochs to run')
+parser.add_argument('-j', '--num_workers', default=4, type=int,
+                    metavar='N', help='number of data loading workers (default: 4)')
+parser.add_argument('--weight-decay', '-wd', default=5e-4,
+                    type=float, metavar='W', help='weight decay (default: 1e-4)')
 parser.add_argument('--optimizer-eps', default=1e-8, type=float)
-parser.add_argument('--crop-size', default=224, type=int, help="crop size of train/test image data")
+parser.add_argument('--crop-size', default=224, type=int,
+                    help="crop size of train/test image data")
 parser.add_argument('--evaluate', action='store_true', help='evaluation mode')
 
 # Network and Loss
 parser.add_argument('--arc', default='swin_transformer_base', type=str, choices=['resnet18', 'resnet50', 'resnet101',
                     'swin_transformer_tiny', 'swin_transformer_small', 'swin_transformer_base'], help="backbone architecture resnet / swin_transformer")
-parser.add_argument('--metric', default="dots", type=str, choices=['dots', 'cosine', 'l1'], help="metric for graph top-K nearest neighbors selection")
-parser.add_argument('--lam', default=0.001, type=float, help="lambda for adjusting loss")
+parser.add_argument('--metric', default="dots", type=str, choices=[
+                    'dots', 'cosine', 'l1'], help="metric for graph top-K nearest neighbors selection")
+parser.add_argument('--lam', default=0.001, type=float,
+                    help="lambda for adjusting loss")
 
 # Device and Seed
-parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
-parser.add_argument('--seed', default=0, type=int, help='seeding for all random operation')
+parser.add_argument('--gpu_ids', type=str, default='0',
+                    help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+parser.add_argument('--seed', default=0, type=int,
+                    help='seeding for all random operation')
 
 # Experiment
-parser.add_argument('--exp-name', default="Test", type=str, help="experiment name for saving checkpoints")
-parser.add_argument('--resume', default='', type=str, metavar='path', help='path to latest checkpoint (default: none)')
+parser.add_argument('--exp-name', default="Test", type=str,
+                    help="experiment name for saving checkpoints")
+parser.add_argument('--resume', default='', type=str, metavar='path',
+                    help='path to latest checkpoint (default: none)')
 
+# Weighted Sampling
+parser.add_argument('--weighted_sampling', default=0,
+                    type=int, help='use weighted sampling')
 
 # ------------------------------
 
@@ -96,7 +114,7 @@ def get_config():
             datasets_cfg = edict(datasets_cfg)
 
     else:
-        raise Exception("Unkown Datsets:",cfg.dataset)
+        raise Exception("Unkown Datsets:", cfg.dataset)
 
     cfg.update(datasets_cfg)
     return cfg
@@ -122,15 +140,16 @@ def set_outdir(conf):
     default_outdir = 'results'
     if 'timedir' in conf:
         timestr = datetime.now().strftime('%d-%m-%Y_%I_%M-%S_%p')
-        outdir = os.path.join(default_outdir,conf.exp_name,timestr)
+        outdir = os.path.join(default_outdir, conf.exp_name, timestr)
     else:
-        outdir = os.path.join(default_outdir,conf.exp_name)
-        prefix = 'bs_'+str(conf.batch_size)+'_seed_'+str(conf.seed)+'_lr_'+str(conf.learning_rate)
-        outdir = os.path.join(outdir,prefix)
+        outdir = os.path.join(default_outdir, conf.exp_name)
+        prefix = 'bs_'+str(conf.batch_size)+'_seed_' + \
+            str(conf.seed)+'_lr_'+str(conf.learning_rate)
+        outdir = os.path.join(outdir, prefix)
     ensure_dir(outdir)
     conf['outdir'] = outdir
-    shutil.copyfile("./model/MEFL.py", os.path.join(outdir,'MEFL.py'))
-    shutil.copyfile("./model/ANFL.py", os.path.join(outdir,'ANFL.py'))
+    shutil.copyfile("./model/MEFL.py", os.path.join(outdir, 'MEFL.py'))
+    shutil.copyfile("./model/ANFL.py", os.path.join(outdir, 'ANFL.py'))
 
     return conf
 
@@ -162,14 +181,13 @@ def set_logger(cfg):
     else:
         loglevel = logging.INFO
 
-
     if cfg.evaluate:
         outname = 'test.log'
     else:
         outname = 'train.log'
 
     outdir = cfg['outdir']
-    log_path = os.path.join(outdir,outname)
+    log_path = os.path.join(outdir, outname)
 
     logger = logging.getLogger()
     logger.setLevel(loglevel)
@@ -177,7 +195,8 @@ def set_logger(cfg):
     if not logger.handlers:
         # Logging to a file
         file_handler = logging.FileHandler(log_path)
-        file_handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s: %(message)s'))
+        file_handler.setFormatter(logging.Formatter(
+            '%(asctime)s:%(levelname)s: %(message)s'))
         logger.addHandler(file_handler)
 
         # Logging to console

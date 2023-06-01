@@ -28,8 +28,18 @@ def get_dataloader(conf):
     elif conf.dataset == 'DISFA':
         trainset = DISFA(conf.dataset_path, train=True, fold=conf.fold, transform=image_train(
             crop_size=conf.crop_size), crop_size=conf.crop_size, stage=1)
-        train_loader = DataLoader(
-            trainset, batch_size=conf.batch_size, shuffle=True, num_workers=conf.num_workers)
+        if conf.weighted_sampling:
+            disfa_weight_map = {0: 1./877405., 1: 1./56642.,
+                                2: 1./46597., 3: 1./45985., 4: 1./15936., 5: 1./3947.}
+            weights = get_sampler_weights(trainset.data_list, disfa_weight_map)
+            weights = torch.DoubleTensor(weights)
+            sampler = torch.utils.data.sampler.WeightedRandomSampler(
+                weights, len(weights))
+            train_loader = DataLoader(trainset, batch_size=conf.batch_size, shuffle=True,
+                                      sampler=sampler, num_workers=conf.num_workers)
+        else:
+            train_loader = DataLoader(
+                trainset, batch_size=conf.batch_size, shuffle=True, num_workers=conf.num_workers)
         valset = DISFA(conf.dataset_path, train=False, fold=conf.fold,
                        transform=image_test(crop_size=conf.crop_size), stage=1)
         val_loader = DataLoader(
