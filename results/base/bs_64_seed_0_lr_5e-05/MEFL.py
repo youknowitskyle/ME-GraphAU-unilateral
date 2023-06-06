@@ -6,7 +6,6 @@ from torch.autograd import Variable
 import math
 from .swin_transformer import swin_transformer_tiny, swin_transformer_small, swin_transformer_base
 from .resnet import resnet18, resnet50, resnet101
-from .tiny_vit import tiny_vit_21m_384, tiny_vit_11m_224
 from .graph import create_e_matrix
 from .graph_edge_model import GEM
 from .basic_block import *
@@ -197,17 +196,6 @@ class MEFARG(nn.Module):
             self.in_channels = self.backbone.fc.weight.shape[1]
             self.out_channels = self.in_channels // 4
             self.backbone.fc = None
-
-        elif 'tiny_vit' in backbone:
-            if backbone == "tiny_vit_21m_384":
-                self.backbone = tiny_vit_21m_384(pretrained=True)
-            elif backbone == "tiny_vit_11m_224":
-                self.backbone = tiny_vit_11m_224(pretrained=True)
-            else:
-                raise Exception("Error: wrong backbone name: ", backbone)
-            self.in_channels = self.backbone.head.in_features
-            self.out_channels = 384
-            self.backbone.head = None
         else:
             raise Exception("Error: wrong backbone name: ", backbone)
 

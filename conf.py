@@ -112,7 +112,7 @@ def get_config():
 
     elif cfg.dataset == 'DISFA':
         with open('config/DISFA_config.yaml', 'r') as f:
-            datasets_cfg = yaml.load(f)
+            datasets_cfg = yaml.load(f, Loader=yaml.Loader)
             datasets_cfg = edict(datasets_cfg)
 
     else:

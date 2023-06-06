@@ -1,0 +1,38 @@
+2023-06-01 12:22:19,289:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: base                          
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 5e-05                         
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/base/bs_64_seed_0_lr_5e-05
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+        weighted_sampling: 0                             
+----------------- End -------------------
+2023-06-01 12:22:19,289:INFO: writting logs to file results/base/bs_64_seed_0_lr_5e-05/train.log
+2023-06-01 12:22:19,355:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-06-01 12:22:19,501:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-06-01 12:22:20,518:INFO: Epoch: [1 | 10 LR: 5e-05 ]
+2023-06-01 12:29:37,099:INFO: {'Epoch:  1   train_loss: 0.60207  val_loss: 0.42508 val_mae: 0.42013 val_mse: 0.51835'}
+2023-06-01 12:29:37,274:INFO: Epoch: [2 | 10 LR: 4.877819291687356e-05 ]
+2023-06-01 12:33:57,055:INFO: {'Epoch:  2   train_loss: 0.23258  val_loss: 0.59952 val_mae: 0.40432 val_mse: 0.63672'}
+2023-06-01 12:33:57,055:INFO: Epoch: [3 | 10 LR: 4.522881130270813e-05 ]
+2023-06-01 12:48:41,431:INFO: {'Epoch:  3   train_loss: 0.18579  val_loss: 0.42003 val_mae: 0.36337 val_mse: 0.51541'}
+2023-06-01 12:48:41,668:INFO: Epoch: [4 | 10 LR: 3.969929269581768e-05 ]
+2023-06-01 13:01:47,796:INFO: {'Epoch:  4   train_loss: 0.16066  val_loss: 0.46473 val_mae: 0.37460 val_mse: 0.55170'}
+2023-06-01 13:01:47,796:INFO: Epoch: [5 | 10 LR: 3.273090490386619e-05 ]

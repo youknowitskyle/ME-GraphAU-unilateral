@@ -1,0 +1,101 @@
+2023-06-05 11:41:59,856:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 20                            
+                 evaluate: False                         
+                 exp_name: tiny_vit_second_stage         
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 1e-06                         
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/tiny_vit_second_stage/bs_64_seed_0_lr_1e-06
+                   resume: /home/kyle/school/farapy/ME-GraphAU-unilateral/results/vanilla/bs_64_seed_0_lr_7e-06/epoch12_model_fold2.pth
+                     seed: 0                             
+             weight_decay: 0.0005                        
+        weighted_sampling: 0                             
+----------------- End -------------------
+2023-06-05 11:41:59,857:INFO: writting logs to file results/tiny_vit_second_stage/bs_64_seed_0_lr_1e-06/train.log
+2023-06-05 11:41:59,928:INFO: Fold: [3 | 3  val_data_num: 43605 ]
+2023-06-05 11:42:00,128:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-06-05 11:42:00,225:INFO: Resume form | /home/kyle/school/farapy/ME-GraphAU-unilateral/results/vanilla/bs_64_seed_0_lr_7e-06/epoch12_model_fold2.pth ]
+2023-06-05 11:42:02,120:INFO: Epoch: [1 | 20 LR: 1e-06 ]
+2023-06-05 11:42:50,468:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 20                            
+                 evaluate: False                         
+                 exp_name: tiny_vit_second_stage         
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 1e-06                         
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/tiny_vit_second_stage/bs_64_seed_0_lr_1e-06
+                   resume: /home/kyle/school/farapy/ME-GraphAU-unilateral/results/vanilla/bs_64_seed_0_lr_7e-06/epoch12_model_fold2.pth
+                     seed: 0                             
+             weight_decay: 0.0005                        
+        weighted_sampling: 0                             
+----------------- End -------------------
+2023-06-05 11:42:50,468:INFO: writting logs to file results/tiny_vit_second_stage/bs_64_seed_0_lr_1e-06/train.log
+2023-06-05 11:42:50,533:INFO: Fold: [3 | 3  val_data_num: 43605 ]
+2023-06-05 11:42:50,675:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-06-05 11:42:50,725:INFO: Resume form | /home/kyle/school/farapy/ME-GraphAU-unilateral/results/vanilla/bs_64_seed_0_lr_7e-06/epoch12_model_fold2.pth ]
+2023-06-05 11:42:51,673:INFO: Epoch: [1 | 20 LR: 1e-06 ]
+2023-06-05 11:48:35,839:INFO: {'Epoch:  1   train_loss: 0.74836  val_loss: 0.78492 val_mae: 0.54758 val_mse: 0.78492'}
+2023-06-05 11:48:36,024:INFO: Epoch: [2 | 20 LR: 9.938531812030453e-07 ]
+2023-06-05 11:54:11,786:INFO: {'Epoch:  2   train_loss: 0.67716  val_loss: 0.73036 val_mae: 0.50790 val_mse: 0.73036'}
+2023-06-05 11:54:11,973:INFO: Epoch: [3 | 20 LR: 9.75546061400513e-07 ]
+2023-06-05 11:59:48,446:INFO: {'Epoch:  3   train_loss: 0.62677  val_loss: 0.70190 val_mae: 0.48311 val_mse: 0.70190'}
+2023-06-05 11:59:48,651:INFO: Epoch: [4 | 20 LR: 9.455294193194074e-07 ]
+2023-06-05 12:05:22,522:INFO: {'Epoch:  4   train_loss: 0.59381  val_loss: 0.68519 val_mae: 0.46228 val_mse: 0.68519'}
+2023-06-05 12:05:22,712:INFO: Epoch: [5 | 20 LR: 9.045423643072884e-07 ]
+2023-06-05 12:10:58,394:INFO: {'Epoch:  5   train_loss: 0.57114  val_loss: 0.67531 val_mae: 0.45478 val_mse: 0.67531'}
+2023-06-05 12:10:58,578:INFO: Epoch: [6 | 20 LR: 8.535941336867913e-07 ]
+2023-06-05 12:16:34,017:INFO: {'Epoch:  6   train_loss: 0.55568  val_loss: 0.66940 val_mae: 0.44845 val_mse: 0.66940'}
+2023-06-05 12:16:34,211:INFO: Epoch: [7 | 20 LR: 7.939392419832762e-07 ]
+2023-06-05 12:22:28,577:INFO: {'Epoch:  7   train_loss: 0.54400  val_loss: 0.66410 val_mae: 0.43715 val_mse: 0.66410'}
+2023-06-05 12:22:28,756:INFO: Epoch: [8 | 20 LR: 7.270465906137178e-07 ]
+2023-06-05 12:28:12,900:INFO: {'Epoch:  8   train_loss: 0.53579  val_loss: 0.66124 val_mae: 0.43207 val_mse: 0.66124'}
+2023-06-05 12:28:13,105:INFO: Epoch: [9 | 20 LR: 6.545632986588169e-07 ]
+2023-06-05 12:34:01,270:INFO: {'Epoch:  9   train_loss: 0.52951  val_loss: 0.65945 val_mae: 0.42940 val_mse: 0.65945'}
+2023-06-05 12:34:01,564:INFO: Epoch: [10 | 20 LR: 5.782741453247576e-07 ]
+2023-06-05 12:39:37,392:INFO: {'Epoch:  10   train_loss: 0.52455  val_loss: 0.65743 val_mae: 0.42310 val_mse: 0.65743'}
+2023-06-05 12:39:37,606:INFO: Epoch: [11 | 20 LR: 5.000576227558076e-07 ]
+2023-06-05 12:45:08,221:INFO: {'Epoch:  11   train_loss: 0.52107  val_loss: 0.65748 val_mae: 0.42368 val_mse: 0.65748'}
+2023-06-05 12:45:08,221:INFO: Epoch: [12 | 20 LR: 4.21839681323371e-07 ]
+2023-06-05 12:50:37,157:INFO: {'Epoch:  12   train_loss: 0.51868  val_loss: 0.65686 val_mae: 0.42440 val_mse: 0.65686'}
+2023-06-05 12:50:37,346:INFO: Epoch: [13 | 20 LR: 3.455463063359786e-07 ]
+2023-06-05 12:56:05,858:INFO: {'Epoch:  13   train_loss: 0.51626  val_loss: 0.65665 val_mae: 0.42239 val_mse: 0.65665'}
+2023-06-05 12:56:06,045:INFO: Epoch: [14 | 20 LR: 2.7305609388901486e-07 ]
+2023-06-05 13:01:34,760:INFO: {'Epoch:  14   train_loss: 0.51492  val_loss: 0.65814 val_mae: 0.42338 val_mse: 0.65814'}
+2023-06-05 13:01:34,760:INFO: Epoch: [15 | 20 LR: 2.0615399359414613e-07 ]
+2023-06-05 13:07:07,133:INFO: {'Epoch:  15   train_loss: 0.51364  val_loss: 0.65776 val_mae: 0.42404 val_mse: 0.65776'}
+2023-06-05 13:07:07,133:INFO: Epoch: [16 | 20 LR: 1.4648735719597315e-07 ]
+2023-06-05 13:12:41,704:INFO: {'Epoch:  16   train_loss: 0.51314  val_loss: 0.65802 val_mae: 0.42262 val_mse: 0.65802'}
+2023-06-05 13:12:41,704:INFO: Epoch: [17 | 20 LR: 9.552537530483212e-08 ]
+2023-06-05 13:18:10,432:INFO: {'Epoch:  17   train_loss: 0.51274  val_loss: 0.65523 val_mae: 0.41605 val_mse: 0.65523'}
+2023-06-05 13:18:10,620:INFO: Epoch: [18 | 20 LR: 5.452290104800361e-08 ]
+2023-06-05 13:23:38,814:INFO: {'Epoch:  18   train_loss: 0.51264  val_loss: 0.65436 val_mae: 0.41289 val_mse: 0.65436'}
+2023-06-05 13:23:39,004:INFO: Epoch: [19 | 20 LR: 2.4489551421101485e-08 ]
+2023-06-05 13:29:06,921:INFO: {'Epoch:  19   train_loss: 0.51291  val_loss: 0.65773 val_mae: 0.42077 val_mse: 0.65773'}
+2023-06-05 13:29:06,922:INFO: Epoch: [20 | 20 LR: 6.1648471669126235e-09 ]
+2023-06-05 13:34:35,503:INFO: {'Epoch:  20   train_loss: 0.51233  val_loss: 0.65586 val_mae: 0.42202 val_mse: 0.65586'}

@@ -1,0 +1,49 @@
+2023-06-05 15:03:04,670:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 20                            
+                 evaluate: False                         
+                 exp_name: tiny_vit_second_stage         
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 0.0001                        
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/tiny_vit_second_stage/bs_64_seed_0_lr_0.0001
+                   resume: /home/kyle/school/farapy/ME-GraphAU-unilateral/results/vanilla/bs_64_seed_0_lr_7e-06/epoch12_model_fold2.pth
+                     seed: 0                             
+             weight_decay: 0.0005                        
+        weighted_sampling: 0                             
+----------------- End -------------------
+2023-06-05 15:03:04,670:INFO: writting logs to file results/tiny_vit_second_stage/bs_64_seed_0_lr_0.0001/train.log
+2023-06-05 15:03:04,745:INFO: Fold: [3 | 3  val_data_num: 43605 ]
+2023-06-05 15:03:04,897:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-06-05 15:03:04,991:INFO: Resume form | /home/kyle/school/farapy/ME-GraphAU-unilateral/results/vanilla/bs_64_seed_0_lr_7e-06/epoch12_model_fold2.pth ]
+2023-06-05 15:03:06,154:INFO: Epoch: [1 | 20 LR: 0.0001 ]
+2023-06-05 15:08:46,480:INFO: {'Epoch:  1   train_loss: 0.49888  val_loss: 0.65762 val_mae: 0.39347 val_mse: 0.65762'}
+2023-06-05 15:08:46,671:INFO: Epoch: [2 | 20 LR: 9.938531812030452e-05 ]
+2023-06-05 15:14:25,080:INFO: {'Epoch:  2   train_loss: 0.46470  val_loss: 0.64667 val_mae: 0.36533 val_mse: 0.64667'}
+2023-06-05 15:14:25,265:INFO: Epoch: [3 | 20 LR: 9.755460614005131e-05 ]
+2023-06-05 15:20:03,135:INFO: {'Epoch:  3   train_loss: 0.45430  val_loss: 0.64043 val_mae: 0.37672 val_mse: 0.64043'}
+2023-06-05 15:20:03,319:INFO: Epoch: [4 | 20 LR: 9.455294193194076e-05 ]
+2023-06-05 15:25:39,679:INFO: {'Epoch:  4   train_loss: 0.44771  val_loss: 0.65693 val_mae: 0.39589 val_mse: 0.65693'}
+2023-06-05 15:25:39,679:INFO: Epoch: [5 | 20 LR: 9.045423643072886e-05 ]
+2023-06-05 15:31:16,082:INFO: {'Epoch:  5   train_loss: 0.44230  val_loss: 0.63933 val_mae: 0.37917 val_mse: 0.63933'}
+2023-06-05 15:31:16,263:INFO: Epoch: [6 | 20 LR: 8.535941336867914e-05 ]
+2023-06-05 15:36:52,914:INFO: {'Epoch:  6   train_loss: 0.43798  val_loss: 0.65315 val_mae: 0.38959 val_mse: 0.65315'}
+2023-06-05 15:36:52,914:INFO: Epoch: [7 | 20 LR: 7.939392419832761e-05 ]
+2023-06-05 15:42:26,887:INFO: {'Epoch:  7   train_loss: 0.43467  val_loss: 0.65741 val_mae: 0.39307 val_mse: 0.65741'}
+2023-06-05 15:42:26,888:INFO: Epoch: [8 | 20 LR: 7.270465906137179e-05 ]
+2023-06-05 15:47:59,904:INFO: {'Epoch:  8   train_loss: 0.43209  val_loss: 0.66595 val_mae: 0.39937 val_mse: 0.66595'}
+2023-06-05 15:47:59,904:INFO: Epoch: [9 | 20 LR: 6.54563298658817e-05 ]
+2023-06-05 15:53:34,913:INFO: {'Epoch:  9   train_loss: 0.42962  val_loss: 0.66998 val_mae: 0.39725 val_mse: 0.66998'}
+2023-06-05 15:53:34,914:INFO: Epoch: [10 | 20 LR: 5.782741453247576e-05 ]

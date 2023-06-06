@@ -1,0 +1,51 @@
+2023-06-05 14:04:54,482:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 20                            
+                 evaluate: False                         
+                 exp_name: tiny_vit_second_stage         
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 1e-05                         
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/tiny_vit_second_stage/bs_64_seed_0_lr_1e-05
+                   resume: /home/kyle/school/farapy/ME-GraphAU-unilateral/results/vanilla/bs_64_seed_0_lr_7e-06/epoch12_model_fold2.pth
+                     seed: 0                             
+             weight_decay: 0.0005                        
+        weighted_sampling: 0                             
+----------------- End -------------------
+2023-06-05 14:04:54,482:INFO: writting logs to file results/tiny_vit_second_stage/bs_64_seed_0_lr_1e-05/train.log
+2023-06-05 14:04:54,554:INFO: Fold: [3 | 3  val_data_num: 43605 ]
+2023-06-05 14:04:54,715:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-06-05 14:04:54,812:INFO: Resume form | /home/kyle/school/farapy/ME-GraphAU-unilateral/results/vanilla/bs_64_seed_0_lr_7e-06/epoch12_model_fold2.pth ]
+2023-06-05 14:04:56,719:INFO: Epoch: [1 | 20 LR: 1e-05 ]
+2023-06-05 14:10:31,196:INFO: {'Epoch:  1   train_loss: 0.58553  val_loss: 0.65810 val_mae: 0.42582 val_mse: 0.65810'}
+2023-06-05 14:10:31,379:INFO: Epoch: [2 | 20 LR: 9.938531812030454e-06 ]
+2023-06-05 14:16:03,878:INFO: {'Epoch:  2   train_loss: 0.49940  val_loss: 0.64713 val_mae: 0.39019 val_mse: 0.64713'}
+2023-06-05 14:16:04,061:INFO: Epoch: [3 | 20 LR: 9.755460614005133e-06 ]
+2023-06-05 14:21:40,685:INFO: {'Epoch:  3   train_loss: 0.48707  val_loss: 0.65482 val_mae: 0.39819 val_mse: 0.65482'}
+2023-06-05 14:21:40,685:INFO: Epoch: [4 | 20 LR: 9.455294193194076e-06 ]
+2023-06-05 14:27:27,009:INFO: {'Epoch:  4   train_loss: 0.48065  val_loss: 0.64919 val_mae: 0.38799 val_mse: 0.64919'}
+2023-06-05 14:27:27,009:INFO: Epoch: [5 | 20 LR: 9.045423643072886e-06 ]
+2023-06-05 14:33:02,734:INFO: {'Epoch:  5   train_loss: 0.47557  val_loss: 0.65725 val_mae: 0.39874 val_mse: 0.65725'}
+2023-06-05 14:33:02,734:INFO: Epoch: [6 | 20 LR: 8.535941336867915e-06 ]
+2023-06-05 14:38:40,737:INFO: {'Epoch:  6   train_loss: 0.47266  val_loss: 0.65339 val_mae: 0.39471 val_mse: 0.65339'}
+2023-06-05 14:38:40,737:INFO: Epoch: [7 | 20 LR: 7.939392419832762e-06 ]
+2023-06-05 14:44:20,018:INFO: {'Epoch:  7   train_loss: 0.46972  val_loss: 0.64519 val_mae: 0.38252 val_mse: 0.64519'}
+2023-06-05 14:44:20,279:INFO: Epoch: [8 | 20 LR: 7.270465906137179e-06 ]
+2023-06-05 14:49:55,712:INFO: {'Epoch:  8   train_loss: 0.46731  val_loss: 0.64310 val_mae: 0.38070 val_mse: 0.64310'}
+2023-06-05 14:49:55,901:INFO: Epoch: [9 | 20 LR: 6.545632986588171e-06 ]
+2023-06-05 14:55:30,362:INFO: {'Epoch:  9   train_loss: 0.46556  val_loss: 0.64833 val_mae: 0.38619 val_mse: 0.64833'}
+2023-06-05 14:55:30,362:INFO: Epoch: [10 | 20 LR: 5.782741453247577e-06 ]
+2023-06-05 15:01:03,073:INFO: {'Epoch:  10   train_loss: 0.46384  val_loss: 0.64778 val_mae: 0.38460 val_mse: 0.64778'}
+2023-06-05 15:01:03,073:INFO: Epoch: [11 | 20 LR: 5.000576227558077e-06 ]

@@ -1,0 +1,148 @@
+2023-06-01 11:22:36,189:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla                       
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 5e-05                         
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla/bs_64_seed_0_lr_5e-05
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+        weighted_sampling: 1                             
+----------------- End -------------------
+2023-06-01 11:22:36,190:INFO: writting logs to file results/vanilla/bs_64_seed_0_lr_5e-05/train.log
+2023-06-01 11:22:36,924:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-06-01 11:22:37,082:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-06-01 11:22:38,137:INFO: Epoch: [1 | 10 LR: 5e-05 ]
+2023-06-01 11:27:06,085:INFO: {'Epoch:  1   train_loss: 0.90185  val_loss: 0.48605 val_mae: 0.48264 val_mse: 0.58429'}
+2023-06-01 11:27:06,267:INFO: Epoch: [2 | 10 LR: 4.877819291687356e-05 ]
+2023-06-01 11:32:18,263:INFO: {'Epoch:  2   train_loss: 0.35609  val_loss: 0.43980 val_mae: 0.42082 val_mse: 0.53726'}
+2023-06-01 11:32:18,438:INFO: Epoch: [3 | 10 LR: 4.522881130270813e-05 ]
+2023-06-01 11:36:56,906:INFO: {'Epoch:  3   train_loss: 0.27017  val_loss: 0.48632 val_mae: 0.42561 val_mse: 0.58904'}
+2023-06-01 11:36:56,906:INFO: Epoch: [4 | 10 LR: 3.969929269581768e-05 ]
+2023-06-01 11:41:16,523:INFO: {'Epoch:  4   train_loss: 0.22684  val_loss: 0.48816 val_mae: 0.42753 val_mse: 0.58577'}
+2023-06-01 11:41:16,523:INFO: Epoch: [5 | 10 LR: 3.273090490386619e-05 ]
+2023-06-01 11:45:34,096:INFO: {'Epoch:  5   train_loss: 0.20183  val_loss: 0.43815 val_mae: 0.39193 val_mse: 0.52253'}
+2023-06-01 11:45:34,265:INFO: Epoch: [6 | 10 LR: 2.5005762275542504e-05 ]
+2023-06-01 11:49:52,460:INFO: {'Epoch:  6   train_loss: 0.18302  val_loss: 0.47022 val_mae: 0.40786 val_mse: 0.56296'}
+2023-06-01 11:49:52,460:INFO: Epoch: [7 | 10 LR: 1.7280055595540596e-05 ]
+2023-06-01 11:54:10,510:INFO: {'Epoch:  7   train_loss: 0.17415  val_loss: 0.47475 val_mae: 0.40731 val_mse: 0.57028'}
+2023-06-01 11:54:10,510:INFO: Epoch: [8 | 10 LR: 1.0310030861862644e-05 ]
+2023-06-01 11:58:27,301:INFO: {'Epoch:  8   train_loss: 0.16506  val_loss: 0.46617 val_mae: 0.40228 val_mse: 0.56994'}
+2023-06-01 11:58:27,301:INFO: Epoch: [9 | 10 LR: 4.777962658458937e-06 ]
+2023-06-01 12:02:42,875:INFO: {'Epoch:  9   train_loss: 0.16127  val_loss: 0.45637 val_mae: 0.39663 val_mse: 0.55080'}
+2023-06-01 12:02:42,875:INFO: Epoch: [10 | 10 LR: 1.2253683652642538e-06 ]
+2023-06-01 12:06:50,258:INFO: {'Epoch:  10   train_loss: 0.15945  val_loss: 0.46062 val_mae: 0.40057 val_mse: 0.56132'}
+2023-06-01 12:19:13,275:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 10                            
+                 evaluate: False                         
+                 exp_name: vanilla                       
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 5e-05                         
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla/bs_64_seed_0_lr_5e-05
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+        weighted_sampling: 0                             
+----------------- End -------------------
+2023-06-01 12:19:13,275:INFO: writting logs to file results/vanilla/bs_64_seed_0_lr_5e-05/train.log
+2023-06-01 12:19:13,341:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-06-01 12:19:13,484:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-06-01 12:19:14,614:INFO: Epoch: [1 | 10 LR: 5e-05 ]
+2023-06-01 20:04:54,299:INFO: ----------------- Options ---------------
+                   N_fold: 3                             
+                      arc: tiny_vit_11m_224              
+               batch_size: 64                            
+                crop_size: 224                           
+                  dataset: DISFA                         
+             dataset_path: data/DISFA                    
+                   epochs: 20                            
+                 evaluate: False                         
+                 exp_name: vanilla                       
+                     fold: 2                             
+                  gpu_ids: 0                             
+               image_size: 256                           
+                      lam: 0.001                         
+            learning_rate: 5e-05                         
+                   metric: dots                          
+             neighbor_num: 3                             
+              num_classes: 8                             
+              num_workers: 4                             
+            optimizer_eps: 1e-08                         
+                   outdir: results/vanilla/bs_64_seed_0_lr_5e-05
+                   resume:                               
+                     seed: 0                             
+             weight_decay: 0.0005                        
+        weighted_sampling: 0                             
+----------------- End -------------------
+2023-06-01 20:04:54,299:INFO: writting logs to file results/vanilla/bs_64_seed_0_lr_5e-05/train.log
+2023-06-01 20:04:54,366:INFO: Fold: [2 | 3  val_data_num: 43605 ]
+2023-06-01 20:04:54,509:INFO: Loading pretrained weights from url (https://github.com/wkcn/TinyViT-model-zoo/releases/download/checkpoints/tiny_vit_11m_22kto1k_distill.pth)
+2023-06-01 20:04:55,721:INFO: Epoch: [1 | 20 LR: 5e-05 ]
+2023-06-01 20:09:14,340:INFO: {'Epoch:  1   train_loss: 0.65020  val_loss: 0.44258 val_mae: 0.35393 val_mse: 0.44258'}
+2023-06-01 20:09:14,539:INFO: Epoch: [2 | 20 LR: 4.969265906015226e-05 ]
+2023-06-01 20:13:31,280:INFO: {'Epoch:  2   train_loss: 0.24756  val_loss: 0.55678 val_mae: 0.37924 val_mse: 0.55678'}
+2023-06-01 20:13:31,280:INFO: Epoch: [3 | 20 LR: 4.877730307002566e-05 ]
+2023-06-01 20:17:48,318:INFO: {'Epoch:  3   train_loss: 0.19420  val_loss: 0.46254 val_mae: 0.33970 val_mse: 0.46254'}
+2023-06-01 20:17:48,318:INFO: Epoch: [4 | 20 LR: 4.727647096597038e-05 ]
+2023-06-01 20:22:05,695:INFO: {'Epoch:  4   train_loss: 0.16639  val_loss: 0.59293 val_mae: 0.39911 val_mse: 0.59293'}
+2023-06-01 20:22:05,695:INFO: Epoch: [5 | 20 LR: 4.522711821536443e-05 ]
+2023-06-01 20:26:23,000:INFO: {'Epoch:  5   train_loss: 0.14925  val_loss: 0.48429 val_mae: 0.36561 val_mse: 0.48429'}
+2023-06-01 20:26:23,000:INFO: Epoch: [6 | 20 LR: 4.267970668433957e-05 ]
+2023-06-01 20:30:40,819:INFO: {'Epoch:  6   train_loss: 0.13543  val_loss: 0.57471 val_mae: 0.38984 val_mse: 0.57471'}
+2023-06-01 20:30:40,819:INFO: Epoch: [7 | 20 LR: 3.9696962099163806e-05 ]
+2023-06-01 20:34:58,536:INFO: {'Epoch:  7   train_loss: 0.12560  val_loss: 0.55690 val_mae: 0.38066 val_mse: 0.55690'}
+2023-06-01 20:34:58,536:INFO: Epoch: [8 | 20 LR: 3.6352329530685894e-05 ]
+2023-06-01 20:39:15,311:INFO: {'Epoch:  8   train_loss: 0.11755  val_loss: 0.52583 val_mae: 0.37103 val_mse: 0.52583'}
+2023-06-01 20:39:15,312:INFO: Epoch: [9 | 20 LR: 3.272816493294085e-05 ]
+2023-06-01 20:43:32,908:INFO: {'Epoch:  9   train_loss: 0.11059  val_loss: 0.54484 val_mae: 0.37320 val_mse: 0.54484'}
+2023-06-01 20:43:32,908:INFO: Epoch: [10 | 20 LR: 2.891370726623788e-05 ]
+2023-06-01 20:47:51,192:INFO: {'Epoch:  10   train_loss: 0.10458  val_loss: 0.57934 val_mae: 0.38620 val_mse: 0.57934'}
+2023-06-01 20:47:51,192:INFO: Epoch: [11 | 20 LR: 2.5002881137790386e-05 ]
+2023-06-01 20:52:08,924:INFO: {'Epoch:  11   train_loss: 0.10078  val_loss: 0.56836 val_mae: 0.37373 val_mse: 0.56836'}
+2023-06-01 20:52:08,924:INFO: Epoch: [12 | 20 LR: 2.109198406616855e-05 ]
+2023-06-01 20:56:26,228:INFO: {'Epoch:  12   train_loss: 0.09672  val_loss: 0.57921 val_mae: 0.38205 val_mse: 0.57921'}
+2023-06-01 20:56:26,228:INFO: Epoch: [13 | 20 LR: 1.727731531679893e-05 ]
+2023-06-01 21:00:44,133:INFO: {'Epoch:  13   train_loss: 0.09295  val_loss: 0.56355 val_mae: 0.37928 val_mse: 0.56355'}
+2023-06-01 21:00:44,133:INFO: Epoch: [14 | 20 LR: 1.3652804694450743e-05 ]
+2023-06-01 21:05:01,537:INFO: {'Epoch:  14   train_loss: 0.08984  val_loss: 0.58437 val_mae: 0.38614 val_mse: 0.58437'}
+2023-06-01 21:05:01,537:INFO: Epoch: [15 | 20 LR: 1.0307699679707308e-05 ]
+2023-06-01 21:09:17,994:INFO: {'Epoch:  15   train_loss: 0.08878  val_loss: 0.58583 val_mae: 0.38611 val_mse: 0.58583'}
+2023-06-01 21:09:17,994:INFO: Epoch: [16 | 20 LR: 7.324367859798659e-06 ]
+2023-06-01 21:13:34,909:INFO: {'Epoch:  16   train_loss: 0.08690  val_loss: 0.59911 val_mae: 0.39168 val_mse: 0.59911'}
+2023-06-01 21:13:34,909:INFO: Epoch: [17 | 20 LR: 4.776268765241606e-06 ]
+2023-06-01 21:17:52,846:INFO: {'Epoch:  17   train_loss: 0.08622  val_loss: 0.59490 val_mae: 0.39115 val_mse: 0.59490'}
+2023-06-01 21:17:52,846:INFO: Epoch: [18 | 20 LR: 2.7261450524001807e-06 ]
+2023-06-01 21:22:03,113:INFO: {'Epoch:  18   train_loss: 0.08487  val_loss: 0.57963 val_mae: 0.38414 val_mse: 0.57963'}
+2023-06-01 21:22:03,113:INFO: Epoch: [19 | 20 LR: 1.2244775710550742e-06 ]
+2023-06-01 21:26:08,649:INFO: {'Epoch:  19   train_loss: 0.08534  val_loss: 0.58736 val_mae: 0.38511 val_mse: 0.58736'}
+2023-06-01 21:26:08,649:INFO: Epoch: [20 | 20 LR: 3.082423583456312e-07 ]
+2023-06-01 21:30:16,294:INFO: {'Epoch:  20   train_loss: 0.08488  val_loss: 0.58875 val_mae: 0.39029 val_mse: 0.58875'}

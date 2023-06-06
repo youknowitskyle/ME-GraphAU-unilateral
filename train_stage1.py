@@ -35,7 +35,7 @@ def get_dataloader(conf):
             weights = torch.DoubleTensor(weights)
             sampler = torch.utils.data.sampler.WeightedRandomSampler(
                 weights, len(weights))
-            train_loader = DataLoader(trainset, batch_size=conf.batch_size, shuffle=True,
+            train_loader = DataLoader(trainset, batch_size=conf.batch_size,
                                       sampler=sampler, num_workers=conf.num_workers)
         else:
             train_loader = DataLoader(
@@ -73,7 +73,9 @@ def train(conf, net, train_loader, optimizer, epoch, criterion):
 def val(net, val_loader, criterion):
     losses = AverageMeter()
     mae_avg = AverageMeter()
+    mse_avg = AverageMeter()
     mae_loss = nn.L1Loss()
+    mse_loss = nn.MSELoss()
     net.eval()
     statistics_list = None
     for batch_idx, (inputs, targets) in enumerate(tqdm(val_loader)):
@@ -84,15 +86,17 @@ def val(net, val_loader, criterion):
             outputs = net(inputs)
             loss = criterion(outputs, targets)
             mae = mae_loss(outputs, targets)
+            mse = mse_loss(outputs, targets)
             losses.update(loss.data.item(), inputs.size(0))
             mae_avg.update(mae.data.item(), inputs.size(0))
+            mse_avg.update(mse.data.item(), inputs.size(0))
     #         update_list = statistics(outputs, targets.detach(), 0.5)
     #         statistics_list = update_statistics_list(
     #             statistics_list, update_list)
     # mean_f1_score, f1_score_list = calc_f1_score(statistics_list)
     # mean_acc, acc_list = calc_acc(statistics_list)
     # return losses.avg, mean_f1_score, f1_score_list, mean_acc, acc_list
-    return losses.avg, mae_avg.avg
+    return losses.avg, mae_avg.avg, mse_avg.avg
 
 
 def main(conf):
@@ -123,7 +127,8 @@ def main(conf):
         train_weight = train_weight.cuda()
 
     # criterion = WeightedAsymmetricLoss(weight=train_weight)
-    criterion = WeightedMSELoss()
+    # criterion = WeightedMSELoss(weight=train_weight)
+    criterion = nn.MSELoss()
     optimizer = optim.AdamW(net.parameters(),  betas=(
         0.9, 0.999), lr=conf.learning_rate, weight_decay=conf.weight_decay)
     print('the init learning rate is ', conf.learning_rate)
@@ -138,15 +143,15 @@ def main(conf):
                            optimizer, epoch, criterion)
         # val_loss, val_mean_f1_score, val_f1_score, val_mean_acc, val_acc = val(
         #     net, val_loader, criterion)
-        val_loss, val_mae = val(
+        val_loss, val_mae, val_mse = val(
             net, val_loader, criterion)
 
         # log
         # infostr = {'Epoch:  {}   train_loss: {:.5f}  val_loss: {:.5f}  val_mean_f1_score {:.2f},val_mean_acc {:.2f}'
         #            .format(epoch + 1, train_loss, val_loss, 100. * val_mean_f1_score, 100. * val_mean_acc)}
 
-        infostr = {'Epoch:  {}   train_loss: {:.5f}  val_loss: {:.5f} val_msa: {:.5f}'
-                   .format(epoch + 1, train_loss, val_loss, val_mae)}
+        infostr = {'Epoch:  {}   train_loss: {:.5f}  val_loss: {:.5f} val_mae: {:.5f} val_mse: {:.5f}'
+                   .format(epoch + 1, train_loss, val_loss, val_mae, val_mse)}
         logging.info(infostr)
 
         # infostr = {'F1-score-list:'}
@@ -176,7 +181,8 @@ def main(conf):
                 'optimizer': optimizer.state_dict(),
             }
             torch.save(checkpoint, os.path.join(
-                conf['outdir'], 'cur_model_fold' + str(conf.fold) + '.pth'))
+                conf['outdir'], 'epoch' + str(epoch + 1) + '_model_fold' + str(conf.fold) + '.pth'))
+            
 
 
 # ---------------------------------------------------------------------------------
